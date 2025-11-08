@@ -44,6 +44,9 @@ build/
 # Cloudflare
 .wrangler/
 .dev.vars
+node_modules/
+package-lock.json
+yarn.lock
 
 # Optional: Keep assets folder but ignore large files if needed
 # Uncomment if you want to ignore specific asset types

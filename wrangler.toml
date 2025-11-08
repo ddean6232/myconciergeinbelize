@@ -1,0 +1,9 @@
+name = "myconciergeinbelize"
+compatibility_date = "2025-11-08"
+main = "worker.js"
+
+# Static assets configuration
+# Assets will be served from the current directory
+[assets]
+directory = "."
+

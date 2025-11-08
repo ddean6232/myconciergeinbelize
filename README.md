@@ -6,6 +6,9 @@ A modern, responsive website for elite travel, expat, and lifestyle services in 
 
 ```
 myconciergeinbelize/
+├── worker.js           # Cloudflare Worker script
+├── wrangler.toml       # Wrangler configuration
+├── package.json        # Node.js dependencies
 ├── index.html          # Main HTML file
 ├── styles.css          # Stylesheet
 ├── main.js             # JavaScript functionality
@@ -30,57 +33,76 @@ php -S localhost:8000
 
 Then visit `http://localhost:8000` in your browser.
 
-## Deployment to Cloudflare Pages
+## Deployment to Cloudflare Workers
 
-### Option 1: Deploy via Git (Recommended)
+This site is configured to deploy as a Cloudflare Worker with static assets.
 
-1. **Push to GitHub**
+### Prerequisites
+
+1. **Install Node.js and npm** (if not already installed)
+2. **Install Wrangler CLI**:
    ```bash
-   git add .
-   git commit -m "Initial commit"
-   git branch -M main
-   git remote add origin https://github.com/ddean6232/myconciergeinbelize.git
-   git push -u origin main
+   npm install -g wrangler
    ```
 
-2. **Connect to Cloudflare Pages**
-   - Go to [Cloudflare Dashboard](https://dash.cloudflare.com/)
-   - Navigate to **Pages** → **Create a project** (or select your existing project)
-   - Click **Connect to Git**
-   - Select your repository (`myconciergeinbelize`)
-   - Configure build settings:
-     - **Framework preset**: None
-     - **Build command**: `exit 0`
-     - **Build output directory**: `.` (single period - current directory)
-     - **Root directory**: `/` (default)
-   - Click **Save and Deploy**
+### Deployment Steps
 
-3. **FIX: If you see build errors with Wrangler:**
-   
-   **The build command field is mandatory. Use a simple no-op command.**
-   
-   Steps to fix:
-   1. Go to [Cloudflare Dashboard](https://dash.cloudflare.com/)
-   2. Navigate to **Pages** → Select your project (`myconciergeinbelize`)
-   3. Click **Settings** tab → **Builds & deployments**
-   4. Scroll down to **Build configuration** section
-   5. Find the **Build command** field
-   6. Replace any existing command with: `exit 0`
-   7. Set **Build output directory** to `.` (single period - means current directory)
-   8. Set **Root directory** to `/` (default)
-   9. Click **Save** button
-   10. Go to **Deployments** tab
-   11. Click the **⋯** (three dots) on the latest failed deployment
-   12. Click **Retry deployment**
-   
-   The `exit 0` command does nothing and exits successfully. Cloudflare Pages will then serve your static files from the current directory.
+1. **Login to Cloudflare**:
+   ```bash
+   wrangler login
+   ```
+   This will open your browser to authenticate with Cloudflare.
 
-4. **Custom Domain (Optional)**
-   - In your Pages project, go to **Custom domains**
-   - Add your domain
-   - Update DNS records as instructed
+2. **Deploy the Worker**:
+   ```bash
+   npm install
+   npm run deploy
+   ```
+   Or directly:
+   ```bash
+   wrangler deploy
+   ```
 
-**Important:** This is a static site. The `exit 0` command is a no-op that satisfies the mandatory build command requirement. Cloudflare Pages will automatically serve your HTML, CSS, JS, and assets from the root directory.
+3. **Your site will be live at**:
+   `https://myconciergeinbelize.<your-subdomain>.workers.dev`
+
+### Project Structure for Workers
+
+```
+myconciergeinbelize/
+├── worker.js          # Cloudflare Worker script
+├── wrangler.toml      # Wrangler configuration
+├── package.json       # Node.js dependencies
+├── index.html         # Main HTML file
+├── styles.css         # Stylesheet
+├── main.js            # JavaScript functionality
+└── assets/            # Images and media files
+    └── hero-bg.jpg    # Hero background image
+```
+
+### How It Works
+
+- The `worker.js` file handles incoming requests and serves static assets
+- The `wrangler.toml` configuration specifies the assets directory
+- Static files (HTML, CSS, JS, images) are bundled with the Worker
+- The Worker serves all requests, with fallback to `index.html` for routing
+
+### Custom Domain (Optional)
+
+1. Go to [Cloudflare Dashboard](https://dash.cloudflare.com/)
+2. Navigate to **Workers & Pages** → Your worker
+3. Go to **Settings** → **Triggers**
+4. Add a custom domain under **Routes**
+5. Update your DNS records as instructed
+
+### Local Development
+
+Test your Worker locally:
+```bash
+npm run dev
+```
+
+This will start a local server at `http://localhost:8787`
 
 ## Features
 
