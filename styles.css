@@ -2,7 +2,7 @@ body {
   margin: 0;
   font-family: 'Montserrat', Arial, sans-serif;
   background: #f8fafb;
-  color: #222;
+  color: #000;
 }
 
 header nav {
@@ -11,7 +11,7 @@ header nav {
   align-items: center;
   padding: 0.5em 2em;
   background: rgba(0,128,128,0.85);
-  color: #fff;
+  color: #000;
   position: relative;
   z-index: 2;
 }
@@ -27,17 +27,17 @@ nav ul {
   gap: 1em;
 }
 nav a {
-  color: #fff;
+  color: #000;
   text-decoration: none;
   font-weight: 500;
   transition: color 0.2s;
 }
 nav a:hover, .btn {
-  color: #ffc107;
+  color: #000;
 }
 .btn, .btn-primary {
   background: #23c98d;
-  color: #fff;
+  color: #000;
   border-radius: 28px;
   padding: 0.5em 1.3em;
   border: none;
@@ -71,7 +71,7 @@ nav a:hover, .btn {
   padding-top: 60px;
   text-align: center;
   z-index: 2;
-  color: #fff;
+  color: #000;
 }
 .hero-content h1 {
   font-size: 2.8em;
@@ -115,7 +115,7 @@ main {
 section h2 {
   font-family: 'Montserrat', sans-serif;
   font-size: 2.1em;
-  color: #23c98d;
+  color: #000;
   margin-bottom: 0.7em;
 }
 
@@ -149,7 +149,7 @@ footer {
   text-align: center;
   padding: 1.4em 0;
   background: #17766b;
-  color: #fff;
+  color: #000;
   font-size: 1.1em;
   margin-top: 3em;
 }
