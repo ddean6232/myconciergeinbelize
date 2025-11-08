@@ -41,6 +41,10 @@ build/
 *.temp
 .cache/
 
+# Cloudflare
+.wrangler/
+.dev.vars
+
 # Optional: Keep assets folder but ignore large files if needed
 # Uncomment if you want to ignore specific asset types
 # *.psd
