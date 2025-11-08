@@ -1,0 +1,33 @@
+name = "myconciergeinbelize"
+compatibility_date = "2025-11-08"
+main = "worker.js"
+
+# Static assets configuration
+# Assets will be served from the current directory
+[assets]
+directory = "."
+
+# Optional: Uncomment to add custom routes/domains
+# routes = [
+#   { pattern = "example.com/*", zone_name = "example.com" }
+# ]
+
+# Optional: Environment variables
+# [vars]
+# ENVIRONMENT = "production"
+
+# Optional: KV Namespaces (uncomment if needed)
+# [[kv_namespaces]]
+# binding = "MY_KV"
+# id = "your-kv-namespace-id"
+
+# Optional: Durable Objects (uncomment if needed)
+# [[durable_objects.bindings]]
+# name = "MY_DURABLE_OBJECT"
+# class_name = "MyDurableObject"
+
+# Optional: R2 Buckets (uncomment if needed)
+# [[r2_buckets]]
+# binding = "MY_BUCKET"
+# bucket_name = "my-bucket-name"
+
