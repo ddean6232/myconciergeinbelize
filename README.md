@@ -37,23 +37,22 @@ Then visit `http://localhost:8000` in your browser.
 
 This site is configured to deploy as a Cloudflare Worker with static assets.
 
-### Prerequisites
+### Deployment Steps
 
 1. **Install Node.js and npm** (if not already installed)
+
 2. **Install Wrangler CLI**:
    ```bash
    npm install -g wrangler
    ```
 
-### Deployment Steps
-
-1. **Login to Cloudflare**:
+3. **Login to Cloudflare**:
    ```bash
    wrangler login
    ```
    This will open your browser to authenticate with Cloudflare.
 
-2. **Deploy the Worker**:
+4. **Deploy the Worker**:
    ```bash
    npm install
    npm run deploy
@@ -63,7 +62,7 @@ This site is configured to deploy as a Cloudflare Worker with static assets.
    wrangler deploy
    ```
 
-3. **Your site will be live at**:
+5. **Your site will be live at**:
    `https://myconciergeinbelize.<your-subdomain>.workers.dev`
 
 ### Project Structure for Workers
