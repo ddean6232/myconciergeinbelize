@@ -118,7 +118,5 @@ This will start a local server at `http://localhost:8787`
 - Update contact form submission to use your backend API (currently uses simulated submission)
 - Customize colors, fonts, and content as needed
 
-## License
 
-© 2025 My Concierge in Belize. All Rights Reserved.
 
