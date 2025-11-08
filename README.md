@@ -50,31 +50,18 @@ Then visit `http://localhost:8000` in your browser.
    - Select your repository (`myconciergeinbelize`)
    - Configure build settings:
      - **Framework preset**: None
-     - **Build command**: (leave empty)
-     - **Build output directory**: `/` (root)
+     - **Build command**: (leave completely empty - do NOT use `npx wrangler deploy`)
+     - **Build output directory**: `/` (root directory)
+     - **Root directory**: `/` (default)
    - Click **Save and Deploy**
+   - Cloudflare Pages will automatically detect and serve your static files
 
 3. **Custom Domain (Optional)**
    - In your Pages project, go to **Custom domains**
    - Add your domain
    - Update DNS records as instructed
 
-### Option 2: Deploy via Wrangler CLI
-
-1. **Install Wrangler** (if not already installed)
-   ```bash
-   npm install -g wrangler
-   ```
-
-2. **Login to Cloudflare**
-   ```bash
-   wrangler login
-   ```
-
-3. **Deploy**
-   ```bash
-   wrangler pages deploy .
-   ```
+**Important:** This is a static site. Do not use Wrangler for deployment - Cloudflare Pages will automatically serve your HTML, CSS, JS, and assets without any build process.
 
 ## Features
 
