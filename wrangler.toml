@@ -1,8 +1,6 @@
-name = "myconciergeinbelize"
-compatibility_date = "2025-11-08"
-main = "index.html"
-
-# Static assets configuration
-# Assets will be served from the current directory
-[assets]
-directory = "./assets"
+  name = "myconciergeinbelize"
+  main = "main.js"
+  compatibility_date = "2025-01-01"
+  [assets]
+  directory = "./"
+  binding = "ASSETS"
