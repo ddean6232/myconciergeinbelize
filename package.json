@@ -1,0 +1,10 @@
+{
+  "name": "myconciergeinbelize",
+  "version": "1.0.0",
+  "description": "My Concierge in Belize - Elite Travel, Expat, and Lifestyle Services",
+  "scripts": {
+    "build": "echo 'Static site - no build required'"
+  },
+  "private": true
+}
+

@@ -50,14 +50,14 @@ Then visit `http://localhost:8000` in your browser.
    - Select your repository (`myconciergeinbelize`)
    - Configure build settings:
      - **Framework preset**: None
-     - **Build command**: (leave completely empty - do NOT use `npx wrangler deploy`)
-     - **Build output directory**: `/` (root directory)
+     - **Build command**: `echo "Static site - no build required"`
+     - **Build output directory**: `/` (root directory - just a forward slash)
      - **Root directory**: `/` (default)
    - Click **Save and Deploy**
 
-3. **FIX: If you see build errors with Wrangler (Current Issue):**
+3. **FIX: If you see build errors with Wrangler:**
    
-   **The build command is set to `npx wrangler deploy` but it should be EMPTY.**
+   **The build command field is mandatory and must contain a valid command.**
    
    Steps to fix:
    1. Go to [Cloudflare Dashboard](https://dash.cloudflare.com/)
@@ -65,16 +65,15 @@ Then visit `http://localhost:8000` in your browser.
    3. Click **Settings** tab → **Builds & deployments**
    4. Scroll down to **Build configuration** section
    5. Find the **Build command** field
-   6. **DELETE/CLEAR** the entire value (it probably says `npx wrangler deploy`)
-   7. Leave it completely **EMPTY**
-   8. Set **Build output directory** to `/` (just a forward slash)
-   9. Set **Root directory** to `/` (default)
-   10. Click **Save** button
-   11. Go to **Deployments** tab
-   12. Click the **⋯** (three dots) on the latest failed deployment
-   13. Click **Retry deployment**
+   6. Replace `npx wrangler deploy` with: `echo "Static site - no build required"`
+   7. Set **Build output directory** to `/` (just a forward slash)
+   8. Set **Root directory** to `/` (default)
+   9. Click **Save** button
+   10. Go to **Deployments** tab
+   11. Click the **⋯** (three dots) on the latest failed deployment
+   12. Click **Retry deployment**
    
-   Cloudflare Pages will now automatically detect and serve your static files without any build process.
+   This command will execute successfully and Cloudflare Pages will serve your static files from the root directory.
 
 4. **Custom Domain (Optional)**
    - In your Pages project, go to **Custom domains**
