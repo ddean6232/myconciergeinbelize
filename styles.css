@@ -1,3 +1,12 @@
+* {
+  box-sizing: border-box;
+}
+
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
 body {
   margin: 0;
   font-family: 'Montserrat', Arial, sans-serif;
@@ -9,11 +18,13 @@ header nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 1.5em;
   padding: 0.5em 2em;
   background: rgba(0,128,128,0.85);
   color: #000;
   position: relative;
   z-index: 2;
+  flex-wrap: wrap;
 }
 .logo {
   font-family: 'Great Vibes', cursive;
@@ -25,6 +36,10 @@ nav ul {
   list-style: none;
   display: flex;
   gap: 1em;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 0;
 }
 nav a {
   color: #000;
@@ -53,7 +68,7 @@ nav a:hover, .btn {
 .hero {
   position: relative;
   height: 50vh;
-  min-height: 400px;
+  min-height: 360px;
   overflow: hidden;
 }
 .hero-bg {
@@ -84,9 +99,10 @@ nav a:hover, .btn {
 }
 
 main {
-  padding: 2em 0;
   max-width: 1000px;
+  width: min(1000px, 100%);
   margin: 0 auto;
+  padding: clamp(1.5em, 4vw, 3em) clamp(1.25em, 6vw, 3em);
 }
 #services {
   margin-bottom: 3em;
@@ -155,14 +171,94 @@ footer {
 }
 
 @media (max-width: 768px) {
+  header nav {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1em 1.5em;
+  }
+
+  .logo {
+    text-align: center;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 0.75em;
+    width: 100%;
+  }
+
+  nav ul li,
+  nav a,
+  .btn,
+  .btn-primary {
+    width: 100%;
+    max-width: 320px;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .hero {
+    height: auto;
+    min-height: 320px;
+    padding: 3.5rem 1.5rem 2.5rem;
+  }
+
+  .hero-content {
+    padding-top: 0;
+  }
+
+  .hero-content h1 {
+    font-size: 2.1em;
+  }
+
+  .hero-content p {
+    font-size: 1.1em;
+  }
+
+  main {
+    padding: 2em clamp(1rem, 6vw, 2.25em);
+  }
+
   .cards {
     flex-direction: column;
     gap: 1.2em;
   }
-  .hero-content h1 {
-    font-size: 2em;
+}
+
+@media (max-width: 480px) {
+  .logo {
+    font-size: 1.7em;
   }
-  .main, main {
-    padding: 1em 0.2em;
+
+  .hero {
+    padding: 2.75rem 1.25rem 2rem;
+  }
+
+  .hero-content h1 {
+    font-size: 1.75em;
+  }
+
+  .hero-content p {
+    font-size: 1em;
+  }
+
+  section h2 {
+    font-size: 1.75em;
+  }
+
+  .card {
+    padding: 1.5em 1.1em;
+  }
+
+  #contact input,
+  #contact textarea {
+    font-size: 0.95em;
+  }
+
+  .btn,
+  .btn-primary {
+    max-width: 100%;
   }
 }
