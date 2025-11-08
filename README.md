@@ -50,14 +50,14 @@ Then visit `http://localhost:8000` in your browser.
    - Select your repository (`myconciergeinbelize`)
    - Configure build settings:
      - **Framework preset**: None
-     - **Build command**: `echo "Static site - no build required"`
-     - **Build output directory**: `/` (root directory - just a forward slash)
+     - **Build command**: `exit 0`
+     - **Build output directory**: `.` (single period - current directory)
      - **Root directory**: `/` (default)
    - Click **Save and Deploy**
 
 3. **FIX: If you see build errors with Wrangler:**
    
-   **The build command field is mandatory and must contain a valid command.**
+   **The build command field is mandatory. Use a simple no-op command.**
    
    Steps to fix:
    1. Go to [Cloudflare Dashboard](https://dash.cloudflare.com/)
@@ -65,22 +65,22 @@ Then visit `http://localhost:8000` in your browser.
    3. Click **Settings** tab → **Builds & deployments**
    4. Scroll down to **Build configuration** section
    5. Find the **Build command** field
-   6. Replace `npx wrangler deploy` with: `echo "Static site - no build required"`
-   7. Set **Build output directory** to `/` (just a forward slash)
+   6. Replace any existing command with: `exit 0`
+   7. Set **Build output directory** to `.` (single period - means current directory)
    8. Set **Root directory** to `/` (default)
    9. Click **Save** button
    10. Go to **Deployments** tab
    11. Click the **⋯** (three dots) on the latest failed deployment
    12. Click **Retry deployment**
    
-   This command will execute successfully and Cloudflare Pages will serve your static files from the root directory.
+   The `exit 0` command does nothing and exits successfully. Cloudflare Pages will then serve your static files from the current directory.
 
 4. **Custom Domain (Optional)**
    - In your Pages project, go to **Custom domains**
    - Add your domain
    - Update DNS records as instructed
 
-**Important:** This is a static site. Do not use Wrangler for deployment - Cloudflare Pages will automatically serve your HTML, CSS, JS, and assets without any build process.
+**Important:** This is a static site. The `exit 0` command is a no-op that satisfies the mandatory build command requirement. Cloudflare Pages will automatically serve your HTML, CSS, JS, and assets from the root directory.
 
 ## Features
 
